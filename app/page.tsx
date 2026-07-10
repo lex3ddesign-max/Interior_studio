@@ -42,10 +42,30 @@ const positioning = [
 ];
 
 const process = [
-  ["Бриф и материалы", "Получаем планы, референсы, дизайн-проект или описание задачи."],
-  ["Сцена и композиция", "Собираем пространство, выбираем ракурсы и выстраиваем кадр."],
-  ["Свет и материалы", "Работаем с фактурами, освещением и настроением пространства."],
-  ["Финальные изображения", "Готовим серию фотореалистичных рендеров с постобработкой."],
+  {
+    icon: "frame",
+    title: "Бриф и визуальная основа",
+    text: "Разбираем задачу, собираем планы, референсы, материалы и ограничения. На этом этапе важно понять не только размеры, но и настроение будущего пространства.",
+    result: "понятная карта проекта и список недостающих материалов",
+  },
+  {
+    icon: "space",
+    title: "Сцена, ракурсы и композиция",
+    text: "Собираем пространство, ищем выигрышные точки камеры и выстраиваем кадр так, чтобы изображение читалось спокойно, дорого и убедительно.",
+    result: "согласованные ракурсы без лишнего визуального шума",
+  },
+  {
+    icon: "detail",
+    title: "Свет, фактуры и атмосфера",
+    text: "Настраиваем материалы, отражения, текстуры и сценарии освещения. Именно здесь сухая модель превращается в кадр, в который хочется войти.",
+    result: "атмосферная сцена с правильной глубиной и светом",
+  },
+  {
+    icon: "series",
+    title: "Финальная серия",
+    text: "Доводим изображения постобработкой, проверяем чистоту деталей и готовим файлы для презентации, согласования, сайта или продажи объекта.",
+    result: "готовая серия фотореалистичных изображений",
+  },
 ];
 
 export default function HomePage() {
@@ -129,21 +149,52 @@ export default function HomePage() {
       <section id="process" className="section-space border-y border-line bg-graphite">
         <div className="page-shell">
           <SectionLabel index="04">Процесс</SectionLabel>
-          <div className="mt-10 grid gap-12 lg:grid-cols-2">
+          <div className="mt-10 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <TextReveal>
               <h2 className="display-title max-w-3xl">От материалов к атмосфере</h2>
-              <p className="mt-7 max-w-xl leading-7 text-muted">
-                Процесс сохраняет идею проекта и усиливает её визуальную подачу —
-                от первых материалов до финальной серии изображений.
+              <p className="mt-7 max-w-xl text-lg leading-8 text-muted">
+                Мы не начинаем с “рендера ради рендера”. Сначала собираем смысл,
+                затем выстраиваем кадр, свет и детали так, чтобы визуализация
+                помогала принимать решения, а не просто украшала презентацию.
               </p>
+              <div className="mt-10 border-l border-bronze/50 pl-6">
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-champagne">
+                  Спокойная продакшн-логика
+                </p>
+                <p className="mt-4 max-w-md leading-7 text-muted-dark">
+                  На каждом этапе есть понятный результат: что согласовываем,
+                  что уточняем и какие файлы переходят в следующую стадию.
+                </p>
+              </div>
             </TextReveal>
-            <div className="border-b border-line">
-              {process.map(([title, text], index) => (
-                <article key={title} className="grid grid-cols-[3rem_1fr] gap-5 border-t border-line py-6">
-                  <span className="text-xs text-bronze">0{index + 1}</span>
-                  <div>
-                    <h3 className="text-lg text-ivory">{title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-dark">{text}</p>
+            <div className="grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2">
+              {process.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="group bg-charcoal p-6 transition-colors duration-300 hover:bg-black/40 md:p-8"
+                >
+                  <div className="flex items-start justify-between gap-6">
+                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-bronze">
+                      0{index + 1}
+                    </span>
+                    <FeatureIcon
+                      name={item.icon}
+                      className="transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <h3 className="mt-10 max-w-sm text-2xl tracking-[-0.04em] text-ivory">
+                    {item.title}
+                  </h3>
+                  <p className="mt-5 text-sm leading-7 text-muted">
+                    {item.text}
+                  </p>
+                  <div className="mt-8 border-t border-line pt-5">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-dark">
+                      Результат этапа
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-champagne">
+                      {item.result}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -156,19 +207,25 @@ export default function HomePage() {
 
       <section id="pricing" className="section-space">
         <div className="page-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <TextReveal>
               <SectionLabel index="05">Стоимость</SectionLabel>
-              <h2 className="display-title mt-10">Ориентиры бюджета</h2>
-              <p className="mt-7 max-w-md leading-7 text-muted">
-                Финальная стоимость рассчитывается индивидуально после знакомства
-                с задачей и материалами проекта.
+              <h2 className="display-title mt-10 max-w-3xl">Ориентиры бюджета без перегруза</h2>
+              <p className="mt-7 max-w-lg text-lg leading-8 text-muted">
+                На главной оставляем быстрый обзор пакетов, а подробную структуру
+                по видам 3D-услуг вынесем на отдельную страницу стоимости.
+                После ссылки на таблицу заменю ориентиры на точные значения.
               </p>
-              <Button href="/contacts" variant="secondary" className="mt-9">
-                Обсудить проект
-              </Button>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button href="/pricing" variant="secondary">
+                  Смотреть пакеты
+                </Button>
+                <Button href="/contacts" variant="secondary">
+                  Обсудить проект
+                </Button>
+              </div>
             </TextReveal>
-            <div className="grid gap-x-7 md:grid-cols-3">
+            <div className="grid gap-6 lg:grid-cols-3">
               {pricing.map((item, index) => (
                 <PricingCard key={item.title} item={item} index={index} />
               ))}

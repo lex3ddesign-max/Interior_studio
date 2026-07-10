@@ -37,7 +37,10 @@ describe("AVENOR content model", () => {
 
   it("provides pricing and internal navigation", () => {
     expect(pricing).toHaveLength(3);
+    expect(pricing.every((item) => item.features.length >= 3)).toBe(true);
     expect(navigation.every((item) => item.href.startsWith("/"))).toBe(true);
+    expect(navigation.map((item) => item.href)).toContain("/about");
+    expect(navigation.map((item) => item.href)).toContain("/pricing");
   });
 
   it("provides two calm home editorial banners after process and trust", () => {

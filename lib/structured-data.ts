@@ -11,7 +11,7 @@ export function buildOrganizationJsonLd() {
     name: site.name,
     url: site.url,
     email: site.email,
-    sameAs: [site.telegram, site.whatsapp],
+    sameAs: [site.telegram, site.whatsapp, site.vk],
     description: site.descriptor,
   };
 }

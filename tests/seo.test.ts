@@ -40,6 +40,8 @@ describe("SEO metadata", () => {
     expect(urls).toContain(site.url + "/");
     expect(urls).toContain(`${site.url}/cases`);
     expect(urls).toContain(`${site.url}/services`);
+    expect(urls).toContain(`${site.url}/about`);
+    expect(urls).toContain(`${site.url}/pricing`);
     expect(urls).toContain(`${site.url}/contacts`);
 
     for (const service of services) {
@@ -63,7 +65,7 @@ describe("SEO metadata", () => {
       url: site.url,
       email: site.email,
     });
-    expect(organization.sameAs).toEqual([site.telegram, site.whatsapp]);
+    expect(organization.sameAs).toEqual([site.telegram, site.whatsapp, site.vk]);
 
     expect(website).toMatchObject({
       "@type": "WebSite",

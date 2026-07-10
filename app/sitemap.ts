@@ -6,7 +6,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
-const staticRoutes = ["/", "/cases", "/services", "/contacts"];
+const staticRoutes = ["/", "/cases", "/services", "/about", "/pricing", "/contacts"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
