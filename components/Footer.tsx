@@ -4,6 +4,7 @@ import { navigation } from "@/data/navigation";
 import { site } from "@/data/site";
 
 import { Logo } from "./Logo";
+import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
   return (
@@ -35,6 +36,7 @@ export function Footer() {
           >
             {site.email}
           </a>
+          <SocialLinks className="mt-5" />
         </div>
       </div>
       <div className="page-shell flex flex-col gap-3 border-t border-line py-6 text-[0.62rem] uppercase tracking-[0.18em] text-muted-dark sm:flex-row sm:justify-between">
@@ -44,4 +46,3 @@ export function Footer() {
     </footer>
   );
 }
-

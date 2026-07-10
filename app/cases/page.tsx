@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { CaseCard } from "@/components/CaseCard";
+import { CaseFilterGrid } from "@/components/CaseFilterGrid";
 import { ListingHero } from "@/components/ListingHero";
 import { cases } from "@/data/cases";
 import { getListingHero } from "@/data/listingHeroes";
@@ -19,28 +19,10 @@ export default function CasesPage() {
 
   return (
     <>
-      <ListingHero hero={hero!}>
-        <div className="flex flex-wrap gap-3 text-[0.66rem] uppercase tracking-[0.16em] text-muted-dark">
-          {["Все", "Интерьеры", "Экстерьеры", "Коммерческие"].map((label) => (
-            <span
-              key={label}
-              className="border border-line bg-black/20 px-4 py-2 backdrop-blur-sm"
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-      </ListingHero>
+      <ListingHero hero={hero!} />
       <section className="section-space bg-charcoal">
-        <div className="page-shell grid gap-x-6 gap-y-14 lg:grid-cols-2">
-          {cases.map((item, index) => (
-            <CaseCard
-              key={item.slug}
-              item={item}
-              featured={index === 0 || index === 3}
-              priority={index === 0}
-            />
-          ))}
+        <div className="page-shell">
+          <CaseFilterGrid items={cases} />
         </div>
       </section>
     </>

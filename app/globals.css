@@ -135,6 +135,13 @@ a {
   outline-offset: 4px;
 }
 
+.contact-field:focus,
+.contact-field:focus-visible {
+  border-bottom-color: var(--color-bronze) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 .service-hero-image {
   object-position: var(--hero-position-mobile);
 }

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   CONTACT_FIELD_CLASS,
+  CONTACT_FIELD_LABEL_CLASS,
   CONTACT_FORM_CLASS,
   CONTACT_MATERIALS_UPLOAD_LABEL,
   CONTACT_MATERIALS_UPLOAD_ICON_CLASS,
@@ -54,8 +55,12 @@ describe("validateContactForm", () => {
     expect(CONTACT_FORM_CLASS).toContain("rounded-[2rem]");
     expect(CONTACT_FORM_CLASS).toContain("border-line");
     expect(CONTACT_FORM_CLASS).toContain("bg-black/20");
-    expect(CONTACT_FIELD_CLASS).toContain("focus:border-bronze");
-    expect(CONTACT_FIELD_CLASS).toContain("focus:bg-ivory/[0.025]");
+    expect(CONTACT_FIELD_LABEL_CLASS).toContain("text-muted");
+    expect(CONTACT_FIELD_CLASS).toContain("contact-field");
+    expect(CONTACT_FIELD_CLASS).toContain("focus:border-b-bronze");
+    expect(CONTACT_FIELD_CLASS).toContain("focus:outline-none");
+    expect(CONTACT_FIELD_CLASS).toContain("focus-visible:outline-none");
+    expect(CONTACT_FIELD_CLASS).toContain("focus-visible:ring-0");
   });
 
   it("uses refined contact channel link states", () => {

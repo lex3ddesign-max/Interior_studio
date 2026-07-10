@@ -4,10 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { navigation } from "@/data/navigation";
+import { site } from "@/data/site";
 import { resolveMenuState } from "@/lib/interactions";
 
 import { Button } from "./Button";
 import { Logo } from "./Logo";
+import { SocialLinks } from "./SocialLinks";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +34,13 @@ export function Header() {
     };
   }, [isOpen]);
 
+  function closeMenu() {
+    setIsOpen((current) => resolveMenuState(current, "navigate"));
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-black/85 backdrop-blur-xl">
-      <div className="page-shell flex h-20 items-center justify-between">
+      <div className="page-shell grid h-20 grid-cols-[1fr_auto] items-center gap-5 lg:grid-cols-[minmax(11rem,1fr)_auto_minmax(11rem,1fr)]">
         <Logo />
 
         <nav aria-label="Основная навигация" className="hidden lg:block">
@@ -49,7 +55,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden justify-self-end lg:block">
           <Button href="/contacts" variant="secondary" className="min-h-10 px-5">
             Обсудить проект
           </Button>
@@ -63,7 +69,7 @@ export function Header() {
           onClick={() =>
             setIsOpen((current) => resolveMenuState(current, "toggle"))
           }
-          className="mobile-menu-trigger flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-line lg:hidden"
+          className="mobile-menu-trigger flex h-11 w-11 flex-col items-center justify-center gap-1.5 justify-self-end border border-line lg:hidden"
         >
           <span className="h-px w-5 bg-ivory" />
           <span className="h-px w-5 bg-ivory" />
@@ -74,7 +80,7 @@ export function Header() {
         <nav
           id="mobile-navigation"
           aria-label="Мобильная навигация"
-          className="mobile-navigation fixed inset-x-0 top-20 bottom-0 border-t border-line bg-charcoal/98 px-4 py-8 backdrop-blur-xl sm:px-8 lg:hidden"
+          className="mobile-navigation fixed inset-x-0 top-20 bottom-0 overflow-y-auto border-t border-line bg-charcoal/98 px-4 py-8 backdrop-blur-xl sm:px-8 lg:hidden"
         >
           <ul className="divide-y divide-line border-y border-line">
             {navigation.map((item, index) => (
@@ -82,11 +88,7 @@ export function Header() {
                 <Link
                   className="flex min-h-16 items-center justify-between text-lg text-ivory"
                   href={item.href}
-                  onClick={() =>
-                    setIsOpen((current) =>
-                      resolveMenuState(current, "navigate"),
-                    )
-                  }
+                  onClick={closeMenu}
                 >
                   {item.label}
                   <span className="text-xs text-muted-dark">
@@ -96,9 +98,21 @@ export function Header() {
               </li>
             ))}
           </ul>
+
           <Button href="/contacts" className="mt-8 w-full">
             Обсудить проект
           </Button>
+
+          <div className="mt-10 border-t border-line pt-8">
+            <p className="footer-label">Связаться</p>
+            <a
+              href={`mailto:${site.email}`}
+              className="mt-4 block text-lg text-ivory transition-colors duration-300 hover:text-champagne"
+            >
+              {site.email}
+            </a>
+            <SocialLinks className="mt-5" />
+          </div>
         </nav>
       ) : null}
     </header>

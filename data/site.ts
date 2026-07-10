@@ -15,4 +15,5 @@ export const site = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@avenor.studio",
   telegram: process.env.NEXT_PUBLIC_CONTACT_TELEGRAM ?? "https://t.me/avenor_studio",
   whatsapp: process.env.NEXT_PUBLIC_CONTACT_WHATSAPP ?? "https://wa.me/79990000000",
+  vk: process.env.NEXT_PUBLIC_CONTACT_VK ?? "https://vk.com/avenor_studio",
 } as const;

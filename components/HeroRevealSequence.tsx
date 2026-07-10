@@ -210,7 +210,6 @@ function HeroCopy() {
             {site.heroTitle}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/contacts">{site.ctaPrimary}</Button>
             <Button href="/cases" variant="secondary">
               {site.ctaSecondary}
             </Button>
