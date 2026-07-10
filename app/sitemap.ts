@@ -4,6 +4,8 @@ import { cases } from "@/data/cases";
 import { services } from "@/data/services";
 import { absoluteUrl } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 const staticRoutes = ["/", "/cases", "/services", "/contacts"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
