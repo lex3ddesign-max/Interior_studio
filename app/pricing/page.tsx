@@ -4,7 +4,11 @@ import { Button } from "@/components/Button";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import { SectionLabel } from "@/components/SectionLabel";
 import { TextReveal } from "@/components/TextReveal";
-import { pricingFactors, pricingPackages } from "@/data/pricing";
+import {
+  pricingFactors,
+  pricingPackages,
+  pricingServiceSections,
+} from "@/data/pricing";
 import { buildSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildSeoMetadata({
@@ -26,9 +30,9 @@ export default function PricingPage() {
               Пакеты 3D-визуализации под разные задачи
             </h1>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-muted">
-              Ниже — структура пакетов, от которой удобно отталкиваться при
-              оценке проекта. Точные значения подставим из таблицы “Виды 3D
-              услуг”, когда будет доступна ссылка на неё.
+              Ниже — реальные ориентиры из таблицы “Виды 3D услуг”: пакеты,
+              сроки, количество ракурсов, условия по площади и отдельные виды
+              работ. Финальная смета всё равно уточняется после брифа.
             </p>
           </TextReveal>
           <div className="mt-12 flex flex-wrap gap-3">
@@ -88,10 +92,108 @@ export default function PricingPage() {
         </div>
       </section>
 
+      <section className="section-space border-y border-line bg-charcoal">
+        <div className="page-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <SectionLabel index="01">Виды 3D услуг</SectionLabel>
+              <h2 className="display-title mt-10 max-w-4xl">
+                Подробная стоимость по категориям
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-muted">
+              Этот блок перенесён из таблицы: он помогает быстро понять, какие
+              задачи считаются по площади, какие — по проекту, где есть
+              минимальный объём и какие доплаты нужно учитывать заранее.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-10">
+            {pricingServiceSections.map((section, sectionIndex) => (
+              <section
+                key={section.title}
+                className="overflow-hidden border border-line bg-black/20"
+              >
+                <div className="grid gap-6 border-b border-line p-6 md:grid-cols-[0.8fr_1.2fr] md:p-8">
+                  <div>
+                    <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-bronze">
+                      0{sectionIndex + 1}
+                    </p>
+                    <h3 className="mt-4 text-3xl tracking-[-0.05em] text-ivory">
+                      {section.title}
+                    </h3>
+                  </div>
+                  <p className="max-w-2xl leading-7 text-muted">
+                    {section.lead}
+                  </p>
+                </div>
+
+                <div className="divide-y divide-line">
+                  {section.rows.map((row) => (
+                    <article
+                      key={`${section.title}-${row.object}`}
+                      className="grid gap-6 p-6 md:grid-cols-[0.9fr_1.4fr_0.9fr] md:p-8"
+                    >
+                      <div>
+                        <h4 className="text-xl text-ivory">{row.object}</h4>
+                        {row.area ? (
+                          <p className="mt-3 text-sm uppercase tracking-[0.14em] text-champagne">
+                            {row.area}
+                          </p>
+                        ) : null}
+                      </div>
+
+                      <div>
+                        <ul className="grid gap-2 text-sm leading-6 text-muted">
+                          {row.description.map((item) => (
+                            <li key={item} className="flex gap-3">
+                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-bronze" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {row.note ? (
+                          <p className="mt-5 max-w-2xl text-sm leading-6 text-muted-dark">
+                            {row.note}
+                          </p>
+                        ) : null}
+                      </div>
+
+                      <dl className="grid gap-4 text-sm">
+                        {row.angles ? (
+                          <div>
+                            <dt className="text-[0.62rem] uppercase tracking-[0.16em] text-muted-dark">
+                              Ракурсы
+                            </dt>
+                            <dd className="mt-1 text-ivory">{row.angles}</dd>
+                          </div>
+                        ) : null}
+                        <div>
+                          <dt className="text-[0.62rem] uppercase tracking-[0.16em] text-muted-dark">
+                            Сроки
+                          </dt>
+                          <dd className="mt-1 text-ivory">{row.timeline}</dd>
+                        </div>
+                        <div>
+                          <dt className="text-[0.62rem] uppercase tracking-[0.16em] text-muted-dark">
+                            Стоимость
+                          </dt>
+                          <dd className="mt-1 text-lg text-champagne">{row.price}</dd>
+                        </div>
+                      </dl>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-space border-y border-line bg-graphite">
         <div className="page-shell grid gap-14 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <SectionLabel index="01">Расчёт</SectionLabel>
+            <SectionLabel index="02">Расчёт</SectionLabel>
             <h2 className="display-title mt-10 max-w-3xl">
               Цена складывается не только из площади
             </h2>
@@ -117,7 +219,7 @@ export default function PricingPage() {
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <SectionLabel index="02">Следующий шаг</SectionLabel>
+            <SectionLabel index="03">Следующий шаг</SectionLabel>
             <p className="display-title mt-10 max-w-4xl">
               Отправьте материалы — соберём точную оценку под ваш проект.
             </p>

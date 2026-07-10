@@ -4,7 +4,7 @@ import { cases } from "@/data/cases";
 import { homeBanners } from "@/data/homeBanners";
 import { listingHeroes } from "@/data/listingHeroes";
 import { navigation } from "@/data/navigation";
-import { pricing } from "@/data/pricing";
+import { pricing, pricingServiceSections } from "@/data/pricing";
 import { services } from "@/data/services";
 import {
   LISTING_HERO_IMAGE_CLASS,
@@ -38,6 +38,12 @@ describe("AVENOR content model", () => {
   it("provides pricing and internal navigation", () => {
     expect(pricing).toHaveLength(3);
     expect(pricing.every((item) => item.features.length >= 3)).toBe(true);
+    expect(pricing[0].price).toBe("от 800 ₽ / м²");
+    expect(pricingServiceSections).toHaveLength(5);
+    expect(pricingServiceSections[0].rows[0]).toMatchObject({
+      object: "Квартира",
+      price: "от 800 ₽ / м² · классика от 1 500 ₽ / м²",
+    });
     expect(navigation.every((item) => item.href.startsWith("/"))).toBe(true);
     expect(navigation.map((item) => item.href)).toContain("/about");
     expect(navigation.map((item) => item.href)).toContain("/pricing");

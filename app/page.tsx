@@ -213,8 +213,8 @@ export default function HomePage() {
               <h2 className="display-title mt-10 max-w-3xl">Ориентиры бюджета без перегруза</h2>
               <p className="mt-7 max-w-lg text-lg leading-8 text-muted">
                 На главной оставляем быстрый обзор пакетов, а подробную структуру
-                по видам 3D-услуг вынесем на отдельную страницу стоимости.
-                После ссылки на таблицу заменю ориентиры на точные значения.
+                по видам 3D-услуг, срокам, ракурсам и доплатам вынесли на
+                отдельную страницу стоимости.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Button href="/pricing" variant="secondary">
