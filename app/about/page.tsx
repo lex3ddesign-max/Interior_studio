@@ -69,7 +69,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,7,0.08)_0%,rgba(8,8,7,0.72)_100%)]" />
             </div>
             <div className="absolute inset-x-8 bottom-8">
-              <p className="text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-champagne">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-champagne">
                 Здесь будет портрет
               </p>
               <p className="mt-4 max-w-md text-2xl tracking-[-0.04em] text-ivory">
@@ -102,17 +102,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-space border-t border-line bg-charcoal">
-        <div className="page-shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+      <section className="relative overflow-hidden border-t border-line bg-charcoal">
+        <div className="absolute inset-0" aria-hidden="true">
+          <Image
+            src="/images/cases/exterior-dusk.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,7,0.96)_0%,rgba(8,8,7,0.78)_45%,rgba(8,8,7,0.48)_100%),linear-gradient(180deg,rgba(8,8,7,0.2)_0%,rgba(8,8,7,0.92)_100%)]" />
+        </div>
+        <div className="page-shell relative z-10 grid min-h-[560px] gap-10 py-20 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:py-28">
           <div>
             <SectionLabel index="02">Диалог</SectionLabel>
             <p className="display-title mt-10 max-w-4xl">
               Покажем пространство так, чтобы решение стало спокойнее.
             </p>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted">
+              Иногда одного точного кадра достаточно, чтобы увидеть пропорции,
+              материалы и настроение будущего проекта без лишних сомнений.
+            </p>
+            <Button href="/contacts" className="mt-10">
+              Обсудить проект
+            </Button>
           </div>
-          <Button href="/contacts" className="shrink-0">
-            Обсудить проект
-          </Button>
+
+          <aside className="border border-line bg-black/45 p-6 backdrop-blur-md md:p-8">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-champagne">
+              Studio note
+            </p>
+            <p className="mt-8 text-3xl tracking-[-0.05em] text-ivory">
+              Не просто визуализация, а способ заранее договориться с пространством.
+            </p>
+            <div className="mt-10 grid grid-cols-3 gap-px bg-line text-center">
+              {["свет", "материал", "кадр"].map((item) => (
+                <span
+                  key={item}
+                  className="bg-charcoal px-3 py-4 text-[0.7rem] uppercase tracking-[0.16em] text-muted"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </aside>
         </div>
       </section>
     </>

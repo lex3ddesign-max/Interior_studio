@@ -28,7 +28,7 @@ export function CaseFilterGrid({ items }: { items: CaseStudy[] }) {
     <div>
       <div className="mb-14 flex flex-col gap-6 border-b border-line pb-8 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-bronze">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bronze">
             Фильтр проектов
           </p>
           <p className="mt-3 max-w-xl text-sm leading-6 text-muted">
@@ -50,7 +50,7 @@ export function CaseFilterGrid({ items }: { items: CaseStudy[] }) {
                 type="button"
                 role="tab"
                 aria-selected={isActive}
-                className={`min-h-10 border px-4 text-[0.66rem] font-semibold uppercase tracking-[0.16em] transition-[border-color,background-color,color] duration-300 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-bronze ${
+                className={`min-h-10 border px-4 text-[0.7rem] font-semibold uppercase tracking-[0.16em] transition-[border-color,background-color,color] duration-300 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-bronze ${
                   isActive
                     ? "border-bronze bg-bronze text-black"
                     : "border-line bg-black/20 text-muted hover:border-bronze/60 hover:text-champagne"

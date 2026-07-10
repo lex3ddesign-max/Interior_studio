@@ -102,7 +102,7 @@ export function Preloader() {
         </p>
         <p
           data-preloader-descriptor
-          className="mt-4 text-[0.62rem] uppercase tracking-[0.18em] text-muted-dark"
+          className="mt-4 text-[0.7rem] uppercase tracking-[0.18em] text-muted-dark"
         >
           {site.descriptor}
         </p>

@@ -64,7 +64,7 @@ export function Footer() {
           <SocialLinks className="mt-5 lg:justify-end" />
         </div>
       </div>
-      <div className="page-shell flex flex-col gap-3 border-t border-line py-6 text-[0.62rem] uppercase tracking-[0.18em] text-muted-dark sm:flex-row sm:justify-between">
+      <div className="page-shell flex flex-col gap-3 border-t border-line py-6 text-[0.7rem] uppercase tracking-[0.18em] text-muted-dark sm:flex-row sm:justify-between">
         <span>© {new Date().getFullYear()} AVENOR</span>
         <span>Visual production studio</span>
       </div>

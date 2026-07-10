@@ -158,7 +158,7 @@ export default function HomePage() {
                 помогала принимать решения, а не просто украшала презентацию.
               </p>
               <div className="mt-10 border-l border-bronze/50 pl-6">
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-champagne">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-champagne">
                   Спокойная продакшн-логика
                 </p>
                 <p className="mt-4 max-w-md leading-7 text-muted-dark">
@@ -174,7 +174,7 @@ export default function HomePage() {
                   className="group bg-charcoal p-6 transition-colors duration-300 hover:bg-black/40 md:p-8"
                 >
                   <div className="flex items-start justify-between gap-6">
-                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-bronze">
+                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-bronze">
                       0{index + 1}
                     </span>
                     <FeatureIcon
@@ -189,7 +189,7 @@ export default function HomePage() {
                     {item.text}
                   </p>
                   <div className="mt-8 border-t border-line pt-5">
-                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-dark">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-dark">
                       Результат этапа
                     </p>
                     <p className="mt-2 text-sm leading-6 text-champagne">

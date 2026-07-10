@@ -26,7 +26,7 @@ export function PricingCard({
       <p className="mt-6 max-w-sm text-sm leading-6 text-muted-dark">
         {item.note}
       </p>
-      <p className="mt-6 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-muted">
+      <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted">
         {item.bestFor}
       </p>
       <ul className="mt-5 grid gap-2 text-sm leading-6 text-muted-dark">

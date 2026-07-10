@@ -29,7 +29,7 @@ export const CONTACT_MATERIALS_UPLOAD_ICON_CLASS =
 export const CONTACT_FORM_CLASS =
   "relative grid gap-6 rounded-[2rem] border border-line bg-black/20 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:p-8 lg:p-10";
 export const CONTACT_FIELD_LABEL_CLASS =
-  "text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted transition-colors duration-300 group-focus-within:text-champagne";
+  "text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted transition-colors duration-300 group-focus-within:text-champagne";
 export const CONTACT_FIELD_CLASS =
   "contact-field w-full border-0 border-b border-line bg-transparent py-3 text-base text-ivory outline-none transition-[border-color,background-color,padding] duration-300 placeholder:text-muted-dark focus:border-b-bronze focus:bg-transparent focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:outline-0 focus-visible:ring-0";
 

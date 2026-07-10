@@ -183,7 +183,7 @@ export function ServicePage({ service }: { service: Service }) {
                 <p className="mt-4 text-sm leading-6 text-muted">
                   {item.text}
                 </p>
-                <p className="mt-6 border-t border-line pt-4 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-champagne">
+                <p className="mt-6 border-t border-line pt-4 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-champagne">
                   {item.result}
                 </p>
               </article>

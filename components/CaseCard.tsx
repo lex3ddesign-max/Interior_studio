@@ -39,7 +39,7 @@ export function CaseCard({
             className="case-image object-cover"
           />
           <div className="absolute inset-0 bg-black/10" />
-          <span className="case-view-label absolute bottom-5 right-5 border border-ivory/25 bg-black/40 px-3 py-2 text-[0.62rem] uppercase tracking-[0.18em] text-ivory backdrop-blur-md">
+          <span className="case-view-label absolute bottom-5 right-5 border border-ivory/25 bg-black/40 px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-ivory backdrop-blur-md">
             View case
           </span>
         </ImageReveal>

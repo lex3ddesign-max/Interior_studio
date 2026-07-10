@@ -23,7 +23,7 @@ const styles = {
 };
 
 export const BUTTON_BASE_CLASS =
-  "button inline-flex min-h-12 items-center justify-center gap-3 border px-6 text-center text-[0.69rem] font-semibold uppercase tracking-[0.18em] transition-[transform,border-color,background-color,color,opacity] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne disabled:pointer-events-none disabled:opacity-55";
+  "button inline-flex min-h-12 items-center justify-center gap-3 border px-6 text-center text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition-[transform,border-color,background-color,color,opacity] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne disabled:pointer-events-none disabled:opacity-55";
 
 export function Button({
   children,

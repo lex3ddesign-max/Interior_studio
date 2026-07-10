@@ -187,7 +187,7 @@ export function HeroRevealSequence() {
                 />
               </div>
               <div className="absolute inset-0 bg-black/35" />
-              <p className="absolute bottom-7 left-5 text-[0.66rem] uppercase tracking-[0.18em] text-ivory">
+              <p className="absolute bottom-7 left-5 text-[0.7rem] uppercase tracking-[0.18em] text-ivory">
                 0{index + 2} / {scene.label}
               </p>
             </article>
@@ -203,7 +203,7 @@ function HeroCopy() {
     <div className="page-shell relative z-10 flex h-full items-end py-12 md:py-16">
       <div className="grid w-full gap-10 lg:grid-cols-[1fr_18rem] lg:items-end">
         <div>
-          <p className="mb-6 text-[0.66rem] uppercase tracking-[0.22em] text-champagne">
+          <p className="mb-6 text-[0.7rem] uppercase tracking-[0.22em] text-champagne">
             {site.descriptor}
           </p>
           <div className="page-title max-w-5xl" aria-hidden="true">
