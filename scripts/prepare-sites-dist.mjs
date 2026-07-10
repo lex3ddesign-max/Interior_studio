@@ -6,6 +6,8 @@ if (!existsSync("out")) {
 
 rmSync("dist", { force: true, recursive: true });
 cpSync("out", "dist", { recursive: true });
+mkdirSync("dist/client", { recursive: true });
+cpSync("out", "dist/client", { recursive: true });
 
 mkdirSync("dist/.openai", { recursive: true });
 cpSync(".openai/hosting.json", "dist/.openai/hosting.json");
@@ -35,18 +37,25 @@ function contentType(pathname) {
 
 function withHtmlFallback(pathname) {
   if (pathname === "/") {
-    return ["/index.html"];
+    return ["/index.html", "/client/index.html"];
   }
 
   if (pathname.endsWith("/")) {
-    return [pathname + "index.html"];
+    return [pathname + "index.html", "/client" + pathname + "index.html"];
   }
 
   if (pathname.includes(".")) {
-    return [pathname];
+    return [pathname, "/client" + pathname];
   }
 
-  return [pathname, pathname + ".html", pathname + "/index.html"];
+  return [
+    pathname,
+    pathname + ".html",
+    pathname + "/index.html",
+    "/client" + pathname,
+    "/client" + pathname + ".html",
+    "/client" + pathname + "/index.html",
+  ];
 }
 
 async function fetchCloudflareAsset(candidate, env) {
@@ -112,7 +121,9 @@ async function fetchAsset(request, env, pathname) {
     });
   }
 
-  const notFound = await fetchCloudflareAsset("/404.html", env);
+  const notFound =
+    (await fetchCloudflareAsset("/404.html", env)) ??
+    (await fetchCloudflareAsset("/client/404.html", env));
   return new Response(notFound?.body ?? "Not found", {
     status: 404,
     headers: {
