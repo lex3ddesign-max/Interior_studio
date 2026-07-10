@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+coverage
+.env*
+!.env.example
+npm-debug.log*
+tsconfig.tsbuildinfo
+qa/lighthouse
+qa/prototype
+qa/*.log
+qa/visual-polish/*.png
