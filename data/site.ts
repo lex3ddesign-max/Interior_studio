@@ -1,7 +1,7 @@
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://avenor.studio").replace(
-  /\/$/,
-  "",
-);
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://avenor-studio.lex3ddesign.chatgpt.site"
+).replace(/\/$/, "");
 
 export const site = {
   name: "AVENOR",
