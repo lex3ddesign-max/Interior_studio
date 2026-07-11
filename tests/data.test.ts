@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { existsSync, statSync } from "node:fs";
+import path from "node:path";
 
 import { cases, homeCasePreviewImages } from "@/data/cases";
 import { homeBanners } from "@/data/homeBanners";
@@ -31,13 +33,44 @@ describe("AVENOR content model", () => {
     const firstCase = cases.find((item) => item.slug === "private-residence");
 
     expect(aboutMedia.portraitTarget).toBe("/images/about/founder.webp");
-    expect(firstCase?.coverImage).toBe("/images/cases/cases_1/Hero.jpg");
+    expect(firstCase?.coverImage).toBe(
+      "/images/cases/cases_1/optimized/Hero.webp",
+    );
     expect(firstCase?.gallery).toHaveLength(13);
     expect(
       firstCase?.gallery.every((image) =>
-        image.startsWith("/images/cases/cases_1/"),
+        image.startsWith("/images/cases/cases_1/optimized/") &&
+        image.endsWith(".webp"),
       ),
     ).toBe(true);
+  });
+
+  it("keeps optimized first case images present and lightweight", () => {
+    const firstCase = cases.find((item) => item.slug === "private-residence");
+    expect(firstCase).toBeDefined();
+
+    for (const image of firstCase?.gallery ?? []) {
+      const filePath = path.join(process.cwd(), "public", image);
+      expect(existsSync(filePath), `${image} should exist`).toBe(true);
+      expect(statSync(filePath).size, `${image} should be under 650 KB`).toBeLessThan(
+        650 * 1024,
+      );
+    }
+  });
+
+  it("describes the first case according to the real apartment visuals", () => {
+    const firstCase = cases.find((item) => item.slug === "private-residence");
+
+    expect(firstCase?.description).toContain("семейной квартиры");
+    expect(firstCase?.story).toContain("кухню-гостиную");
+    expect(firstCase?.story).toContain("бирюзовый");
+    expect(firstCase?.story).toContain("детскую");
+    expect(firstCase?.details).toEqual([
+      "Белая корпусная мебель",
+      "Светлое дерево",
+      "Бирюзовый текстиль",
+      "Зелёный акцент",
+    ]);
   });
 
   it("keeps uploaded case galleries out of the home page case previews", () => {
