@@ -16,7 +16,10 @@ describe("AVENOR content model", () => {
   it("provides five uniquely addressable cases", () => {
     expect(cases).toHaveLength(5);
     expect(new Set(cases.map((item) => item.slug)).size).toBe(5);
-    expect(cases.every((item) => item.gallery.length >= 3)).toBe(true);
+    expect(cases.every((item) => item.gallery.length >= 8)).toBe(true);
+    expect(cases.every((item) => item.story.length > 120)).toBe(true);
+    expect(cases.every((item) => item.highlights.length >= 3)).toBe(true);
+    expect(cases.every((item) => item.technicalDocs.length >= 3)).toBe(true);
   });
 
   it("provides three route-backed services", () => {

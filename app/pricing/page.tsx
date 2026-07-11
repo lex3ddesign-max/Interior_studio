@@ -175,18 +175,26 @@ export default function PricingPage() {
             {pricingServiceSections.map((section, sectionIndex) => (
               <section
                 key={section.title}
-                className="overflow-hidden border border-line bg-black/20"
+                className="overflow-hidden border border-line bg-black/20 shadow-[0_24px_80px_rgba(0,0,0,0.24)]"
               >
-                <div className="grid gap-6 border-b border-line p-6 md:grid-cols-[0.8fr_1.2fr] md:p-8">
+                <div className="relative grid gap-6 overflow-hidden border-b border-bronze/35 bg-[linear-gradient(135deg,rgba(176,138,90,0.18),rgba(17,16,14,0.9)_42%,rgba(8,8,7,0.96))] p-6 md:grid-cols-[0.8fr_1.2fr] md:p-8">
+                  <div
+                    className="absolute right-8 top-1/2 hidden h-32 w-32 -translate-y-1/2 rotate-45 border border-bronze/25 md:block"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute left-0 top-0 h-full w-1 bg-bronze/75"
+                    aria-hidden="true"
+                  />
                   <div>
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bronze">
-                      0{sectionIndex + 1}
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-champagne">
+                      Категория · 0{sectionIndex + 1}
                     </p>
-                    <h3 className="mt-4 text-3xl tracking-[-0.05em] text-ivory">
+                    <h3 className="mt-4 text-3xl tracking-[-0.05em] text-champagne md:text-4xl">
                       {section.title}
                     </h3>
                   </div>
-                  <p className="max-w-2xl leading-7 text-muted">
+                  <p className="relative max-w-2xl leading-7 text-muted">
                     {section.lead}
                   </p>
                 </div>
