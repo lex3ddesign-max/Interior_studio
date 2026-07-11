@@ -135,6 +135,59 @@ async function fetchAsset(request, env, pathname) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/contact") {
+      if (request.method !== "POST") {
+        return new Response(JSON.stringify({ error: "Method not allowed" }), {
+          status: 405,
+          headers: { "content-type": "application/json; charset=utf-8" },
+        });
+      }
+
+      let values;
+
+      try {
+        values = await request.json();
+      } catch {
+        return new Response(JSON.stringify({ error: "Некорректный формат заявки." }), {
+          status: 400,
+          headers: { "content-type": "application/json; charset=utf-8" },
+        });
+      }
+
+      const errors = {};
+
+      if (!values?.name?.trim()) {
+        errors.name = "Укажите имя";
+      }
+
+      if (!values?.contact?.trim()) {
+        errors.contact = "Оставьте email, телефон или ник в мессенджере";
+      }
+
+      if (!values?.message?.trim()) {
+        errors.message = "Коротко расскажите о проекте";
+      }
+
+      if (Object.keys(errors).length > 0) {
+        return new Response(JSON.stringify({ errors }), {
+          status: 400,
+          headers: { "content-type": "application/json; charset=utf-8" },
+        });
+      }
+
+      return new Response(
+        JSON.stringify({
+          error:
+            "Отправка email ещё не настроена на production. Напишите в Telegram, WhatsApp или подключите HTTP-почтовый сервис.",
+        }),
+        {
+          status: 503,
+          headers: { "content-type": "application/json; charset=utf-8" },
+        },
+      );
+    }
+
     const response = await fetchAsset(request, env, url.pathname);
 
     if (response) {
