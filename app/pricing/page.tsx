@@ -15,7 +15,7 @@ import { buildSeoMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildSeoMetadata({
   title: "Стоимость 3D-визуализации",
   description:
-    "Пакеты и ориентиры стоимости 3D-визуализации интерьеров, экстерьеров и коммерческих пространств AVENOR.",
+    "Пакеты и ориентиры стоимости 3D-визуализации AVENOR: интерьеры, экстерьеры, коммерческие пространства, сроки, ракурсы и факторы расчёта.",
   path: "/pricing",
   image: "/images/cases/interior-warm.jpg",
 });
@@ -41,12 +41,12 @@ export default function PricingPage() {
             <SectionLabel>Стоимость</SectionLabel>
             <TextReveal>
               <h1 className="page-title mt-10 max-w-5xl">
-                Пакеты 3D-визуализации под разные задачи
+                Стоимость визуализации, которую легко объяснить
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-muted">
-                Ниже — реальные ориентиры из таблицы “Виды 3D услуг”: пакеты,
-                сроки, количество ракурсов, условия по площади и отдельные виды
-                работ. Финальная смета всё равно уточняется после брифа.
+                Ниже — ориентиры по пакетам, срокам, ракурсам и отдельным видам
+                работ. Финальная смета уточняется после брифа, когда понятны
+                материалы, детализация, количество кадров и задача презентации.
               </p>
             </TextReveal>
             <div className="mt-12 flex flex-wrap gap-3">
@@ -292,7 +292,7 @@ export default function PricingPage() {
           <div>
             <SectionLabel index="03">Следующий шаг</SectionLabel>
             <p className="display-title mt-10 max-w-4xl">
-              Отправьте материалы — соберём точную оценку под ваш проект.
+              Отправьте материалы — соберём спокойную и понятную оценку под ваш проект.
             </p>
           </div>
           <Button href="/contacts" className="shrink-0">

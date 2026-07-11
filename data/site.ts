@@ -6,10 +6,10 @@ const siteUrl = (
 export const site = {
   name: "AVENOR",
   url: siteUrl,
-  descriptor: "visual production for interiors & architecture",
-  heroTitle: "Визуализируем пространства, в которые хочется войти",
+  descriptor: "quiet visual production for interiors & architecture",
+  heroTitle: "Показываем пространство до того, как оно станет реальностью",
   heroSubtitle:
-    "Премиальная 3D-визуализация интерьеров, экстерьеров и коммерческих объектов для частных клиентов, дизайнеров и архитекторов.",
+    "Фотореалистичная 3D-визуализация интерьеров, экстерьеров и коммерческих объектов, которая помогает согласовать решения, почувствовать атмосферу и уверенно двигаться к реализации.",
   ctaPrimary: "Обсудить проект",
   ctaSecondary: "Посмотреть кейсы",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@avenor.studio",

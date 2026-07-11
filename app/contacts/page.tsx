@@ -6,7 +6,7 @@ import { buildSeoMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildSeoMetadata({
   title: "Контакты",
   description:
-    "Обсудить 3D-визуализацию интерьера, экстерьера или коммерческого пространства с AVENOR.",
+    "Обсудить 3D-визуализацию с AVENOR: отправьте материалы, референсы или короткое описание проекта для спокойной оценки задачи.",
   path: "/contacts",
   image: "/images/cases/interior-warm.jpg",
 });
