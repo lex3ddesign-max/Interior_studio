@@ -22,7 +22,7 @@ export function ServiceCard({ item }: { item: Service }) {
       >
         <span className="absolute left-0 top-0 h-full w-px bg-bronze/0 transition-colors duration-200 group-hover:bg-bronze/70" />
         <span className="flex items-center gap-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted transition-colors duration-200 group-hover:text-champagne">
-          <span className="grid h-12 w-12 shrink-0 place-items-center border border-line bg-black/35 transition-colors duration-200 group-hover:border-bronze/50 group-hover:bg-bronze/[0.06]">
+          <span className="grid h-12 w-12 shrink-0 place-items-center text-bronze transition-transform duration-200 group-hover:scale-110">
             <FeatureIcon
               name={serviceIcons[item.slug]}
               className={featureIconSizes.compact.className}
@@ -39,11 +39,11 @@ export function ServiceCard({ item }: { item: Service }) {
             {item.description}
           </p>
           <p className="mt-5 text-sm leading-6 text-muted-dark">
-            Подходит, когда нужно заранее увидеть пропорции, свет, материалы и настроение пространства до реализации.
+            Помогает спокойно согласовать решения, показать ценность проекта и снять сомнения до стройки, презентации или запуска продаж.
           </p>
         </div>
         <span
-          className="grid h-12 w-12 place-items-center border border-line text-champagne transition-all duration-200 group-hover:translate-x-1 group-hover:border-bronze/60 group-hover:bg-bronze/[0.08]"
+          className="grid h-12 w-12 place-items-center text-champagne transition-all duration-200 group-hover:translate-x-1 group-hover:text-ivory"
           aria-hidden="true"
         >
           <svg

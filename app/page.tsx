@@ -135,7 +135,7 @@ export default function HomePage() {
           <SectionLabel index="03">Услуги</SectionLabel>
           <TextReveal>
             <h2 className="display-title mt-10 max-w-5xl">
-              Визуализация для разных типов пространств
+              Кадры, которые помогают согласовать, презентовать и продавать пространство
             </h2>
           </TextReveal>
           <div className="mt-16 border-b border-line">

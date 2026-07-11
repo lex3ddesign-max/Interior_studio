@@ -74,8 +74,8 @@ export default async function CasePage({ params }: PageProps) {
 
       <section className="section-space border-t border-line">
         <div className="page-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.42fr_1fr]">
-            <SectionLabel index="01">Задача</SectionLabel>
+          <div className="grid items-start gap-10 lg:grid-cols-[0.42fr_1fr]">
+            <SectionLabel index="01" className="self-start">Задача</SectionLabel>
             <div>
               <p className="max-w-4xl text-2xl leading-10 tracking-[-0.025em] text-ivory">
                 {item.description}
@@ -83,6 +83,26 @@ export default async function CasePage({ params }: PageProps) {
               <p className="mt-8 max-w-3xl text-lg leading-8 text-muted">
                 {item.story}
               </p>
+              <dl className="mt-10 grid gap-4 border-y border-line py-6 text-sm md:grid-cols-3">
+                <div>
+                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-dark">
+                    Тип объекта
+                  </dt>
+                  <dd className="mt-2 text-ivory">{categoryLabel(item.category)}</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-dark">
+                    Локация
+                  </dt>
+                  <dd className="mt-2 text-ivory">{item.location ?? "—"}</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-dark">
+                    Услуги
+                  </dt>
+                  <dd className="mt-2 text-ivory">{item.services.join(", ")}</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
@@ -114,7 +134,7 @@ export default async function CasePage({ params }: PageProps) {
           <div>
             <SectionLabel index="02">Техническая документация</SectionLabel>
             <h2 className="mt-10 max-w-lg text-4xl tracking-[-0.05em] text-ivory md:text-5xl">
-              Основа, по которой собиралась визуальная сцена
+              Документы, материалы и логика кадра — всё, что делает визуализацию убедительной
             </h2>
           </div>
 
@@ -140,6 +160,24 @@ export default async function CasePage({ params }: PageProps) {
                 </div>
               </article>
             ))}
+            <article className="border border-bronze/30 bg-bronze/[0.04] p-6 md:p-8">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-bronze">
+                Материальная палитра
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {item.details.map((detail) => (
+                  <span
+                    key={detail}
+                    className="border border-line px-3 py-2 text-sm text-ivory"
+                  >
+                    {detail}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-6 max-w-2xl leading-7 text-muted">
+                Эти акценты отдельно проверяются в сцене: на них держится ощущение стоимости, глубины и правдоподобия будущего пространства.
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -149,11 +187,11 @@ export default async function CasePage({ params }: PageProps) {
           <div>
             <SectionLabel index="03">Визуальная серия</SectionLabel>
             <h2 className="mt-8 max-w-3xl text-5xl tracking-[-0.055em] text-ivory md:text-7xl">
-              Минимум восемь ракурсов для полного ощущения проекта
+              Серия кадров, которая помогает клиенту захотеть это пространство
             </h2>
           </div>
           <p className="max-w-md leading-7 text-muted">
-            Общие планы, детали материалов и атмосферные кадры помогают увидеть проект не фрагментами, а цельной историей.
+            Мы показываем не количество картинок, а путь внимания: первый общий образ, важные детали, свет, фактуры и кадры, которые удобно использовать в презентации.
           </p>
         </div>
 
@@ -179,48 +217,9 @@ export default async function CasePage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="section-space border-y border-line bg-charcoal">
-        <div className="page-shell grid gap-12 lg:grid-cols-2">
-          <div>
-            <SectionLabel index="04">Детали</SectionLabel>
-            <ul className="mt-10 border-b border-line">
-              {item.details.map((detail) => (
-                <li
-                  key={detail}
-                  className="border-t border-line py-4 text-lg text-ivory"
-                >
-                  {detail}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <SectionLabel index="05">Project info</SectionLabel>
-            <dl className="mt-10 grid gap-6 text-sm">
-              <div className="flex justify-between gap-6 border-t border-line pt-4">
-                <dt className="text-muted-dark">Тип объекта</dt>
-                <dd className="text-right text-ivory">
-                  {categoryLabel(item.category)}
-                </dd>
-              </div>
-              <div className="flex justify-between gap-6 border-t border-line pt-4">
-                <dt className="text-muted-dark">Услуги</dt>
-                <dd className="max-w-xs text-right text-ivory">
-                  {item.services.join(", ")}
-                </dd>
-              </div>
-              <div className="flex justify-between gap-6 border-t border-line pt-4">
-                <dt className="text-muted-dark">Формат</dt>
-                <dd className="text-right text-ivory">Серия изображений</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
       <section className="section-space text-center">
         <div className="page-shell">
-          <p className="display-title">Хотите похожую визуальную подачу?</p>
+          <p className="display-title">Покажем ваш проект так, чтобы его было легче согласовать и продать.</p>
           <Button href="/contacts" className="mt-10">
             Обсудить проект
           </Button>

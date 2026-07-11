@@ -319,8 +319,8 @@ a {
 }
 
 .custom-cursor[data-mode="case"] {
-  width: 8.25rem;
-  height: 3.25rem;
+  width: 5.75rem;
+  height: 5.75rem;
 }
 
 .custom-cursor[data-mode="case"] .custom-cursor-surface {
@@ -336,7 +336,13 @@ a {
 }
 
 .custom-cursor[data-mode="case"] .custom-cursor-surface span {
+  max-width: 3.6rem;
   opacity: 1;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  line-height: 1.18;
+  text-align: center;
+  white-space: normal;
 }
 
 .custom-cursor[data-mode="cta"]::before {
