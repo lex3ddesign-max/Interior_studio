@@ -80,6 +80,14 @@ const commercialGallery = [
   images.interiorStone,
 ];
 
+export const homeCasePreviewImages = [
+  images.interiorWarm,
+  images.exteriorVilla,
+  images.interiorStone,
+  images.commercial,
+  images.exteriorDusk,
+] as const;
+
 export const cases: CaseStudy[] = [
   {
     slug: "private-residence",

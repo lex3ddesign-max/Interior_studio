@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { cases } from "@/data/cases";
+import { cases, homeCasePreviewImages } from "@/data/cases";
 import { homeBanners } from "@/data/homeBanners";
 import { listingHeroes } from "@/data/listingHeroes";
 import { aboutMedia, mediaUploadSlots } from "@/data/media";
@@ -38,6 +38,14 @@ describe("AVENOR content model", () => {
         image.startsWith("/images/cases/cases_1/"),
       ),
     ).toBe(true);
+  });
+
+  it("keeps uploaded case galleries out of the home page case previews", () => {
+    expect(homeCasePreviewImages).toHaveLength(cases.length);
+    expect(homeCasePreviewImages[0]).toBe("/images/cases/interior-warm.jpg");
+    expect(homeCasePreviewImages.every((image) => !image.includes("/cases_1/"))).toBe(
+      true,
+    );
   });
 
   it("provides three route-backed services", () => {

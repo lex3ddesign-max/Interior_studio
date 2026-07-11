@@ -10,13 +10,17 @@ type CaseCardProps = {
   item: CaseStudy;
   featured?: boolean;
   priority?: boolean;
+  imageOverride?: string;
 };
 
 export function CaseCard({
   item,
   featured = false,
   priority = false,
+  imageOverride,
 }: CaseCardProps) {
+  const cardImage = imageOverride ?? item.coverImage;
+
   return (
     <article className={cn("case-card group", featured && "lg:col-span-2")}>
       <Link
@@ -31,7 +35,7 @@ export function CaseCard({
           )}
         >
           <Image
-            src={item.coverImage}
+            src={cardImage}
             alt={`${item.title} — ${categoryLabel(item.category)}`}
             fill
             priority={priority}

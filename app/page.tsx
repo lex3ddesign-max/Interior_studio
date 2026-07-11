@@ -10,7 +10,7 @@ import { PricingCard } from "@/components/PricingCard";
 import { SectionLabel } from "@/components/SectionLabel";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TextReveal } from "@/components/TextReveal";
-import { cases } from "@/data/cases";
+import { cases, homeCasePreviewImages } from "@/data/cases";
 import { homeBanners } from "@/data/homeBanners";
 import { pricing } from "@/data/pricing";
 import { services } from "@/data/services";
@@ -122,6 +122,7 @@ export default function HomePage() {
                 item={item}
                 featured={index === 0}
                 priority={index === 0}
+                imageOverride={homeCasePreviewImages[index]}
               />
             ))}
           </div>
