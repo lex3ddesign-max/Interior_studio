@@ -20,7 +20,7 @@ export default function ServicesPage() {
   return (
     <>
       <ListingHero hero={hero!} />
-      <section className="section-space">
+      <section className="py-16 md:py-24">
         <div className="page-shell border-b border-line">
           {services.map((item) => (
             <ServiceCard key={item.slug} item={item} />

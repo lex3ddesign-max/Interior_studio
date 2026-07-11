@@ -42,11 +42,11 @@ export function ListingHero({
       </div>
 
       <div className="page-shell relative z-10">
-        <div className="flex min-h-[720px] items-center py-32 md:min-h-[780px] md:py-40">
+        <div className="flex min-h-[640px] items-center py-24 md:min-h-[700px] md:py-32">
           <div className="max-w-6xl md:max-w-[45vw]">
             <SectionLabel>{hero.eyebrow}</SectionLabel>
             <TextReveal>
-              <h1 className="mt-10 max-w-6xl text-[clamp(2.75rem,5.8vw,5.85rem)] font-[430] leading-[0.96] tracking-[-0.06em] text-ivory text-balance md:max-w-[45vw]">
+              <h1 className="mt-10 max-w-6xl text-[clamp(2.55rem,5.2vw,5.35rem)] font-[430] leading-[0.98] tracking-[-0.058em] text-ivory text-balance md:max-w-[45vw]">
                 {hero.title}
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-muted">

@@ -107,7 +107,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="section-space">
+      <section className="pt-20 pb-10 md:pt-28 md:pb-12">
         <div className="page-shell">
           <div className="grid gap-px overflow-hidden border border-line bg-line lg:grid-cols-3">
             {pricingPackages.map((item, index) => (
@@ -155,7 +155,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="section-space border-y border-line bg-charcoal">
+      <section className="border-y border-line bg-charcoal pt-14 pb-20 md:pt-16 md:pb-28">
         <div className="page-shell">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>

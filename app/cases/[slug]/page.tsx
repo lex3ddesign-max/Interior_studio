@@ -72,7 +72,7 @@ export default async function CasePage({ params }: PageProps) {
         </ImageReveal>
       </section>
 
-      <section className="section-space border-t border-line">
+      <section className="border-t border-line pt-20 pb-10 md:pt-28 md:pb-12">
         <div className="page-shell">
           <div className="grid items-start gap-10 lg:grid-cols-[0.42fr_1fr]">
             <SectionLabel index="01" className="self-start">Задача</SectionLabel>
@@ -129,7 +129,7 @@ export default async function CasePage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="section-space border-y border-line bg-charcoal">
+      <section className="border-y border-line bg-charcoal pt-14 pb-20 md:pt-16 md:pb-28">
         <div className="page-shell grid gap-12 lg:grid-cols-[0.42fr_1fr]">
           <div>
             <SectionLabel index="02">Техническая документация</SectionLabel>

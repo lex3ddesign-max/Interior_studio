@@ -20,7 +20,7 @@ export default function CasesPage() {
   return (
     <>
       <ListingHero hero={hero!} />
-      <section className="section-space bg-charcoal">
+      <section className="bg-charcoal py-16 md:py-24">
         <div className="page-shell">
           <CaseFilterGrid items={cases} />
         </div>
