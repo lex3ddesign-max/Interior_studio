@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { Button } from "@/components/Button";
+import { CaseGallery } from "@/components/CaseGallery";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import { ImageReveal } from "@/components/ImageReveal";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -195,26 +196,7 @@ export default async function CasePage({ params }: PageProps) {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          {item.gallery.map((image, index) => (
-            <ImageReveal
-              key={`${image}-${index}`}
-              className={
-                index === 0 || index === 5
-                  ? "relative aspect-[16/9] md:col-span-2"
-                  : "relative aspect-[4/5]"
-              }
-            >
-              <Image
-                src={image}
-                alt={`${item.title} — ракурс ${index + 1}`}
-                fill
-                sizes={index === 0 || index === 5 ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
-                className="object-cover"
-              />
-            </ImageReveal>
-          ))}
-        </div>
+        <CaseGallery images={item.gallery} title={item.title} />
       </section>
 
       <section className="section-space text-center">

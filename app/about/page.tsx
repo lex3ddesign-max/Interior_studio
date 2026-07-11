@@ -30,6 +30,12 @@ const principles = [
   },
 ];
 
+export const ABOUT_PORTRAIT_CARD_CLASS =
+  "relative min-h-[680px] overflow-hidden border border-line bg-charcoal lg:min-h-[760px]";
+
+export const ABOUT_PORTRAIT_IMAGE_CLASS =
+  "object-cover object-[center_18%] opacity-45";
+
 export default function AboutPage() {
   return (
     <>
@@ -58,14 +64,14 @@ export default function AboutPage() {
             </p>
           </TextReveal>
 
-          <div className="relative min-h-[520px] overflow-hidden border border-line bg-charcoal">
+          <div className={ABOUT_PORTRAIT_CARD_CLASS}>
             <div className="absolute inset-0">
               <Image
                 src={aboutMedia.portraitTarget}
                 alt="Авторский визуальный контроль AVENOR"
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
-                className="object-cover opacity-35"
+                className={ABOUT_PORTRAIT_IMAGE_CLASS}
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,7,0.08)_0%,rgba(8,8,7,0.72)_100%)]" />
             </div>

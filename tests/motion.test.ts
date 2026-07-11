@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { heroScenes } from "@/data/hero-scenes";
+import { caseImages } from "@/data/media";
 import { motion, resolveMotionMode } from "@/lib/motion";
 
 describe("resolveMotionMode", () => {
@@ -43,5 +44,16 @@ describe("heroScenes", () => {
       "Exterior",
       "Commercial",
     ]);
+  });
+
+  it("keeps the home hero on editorial studio images, not uploaded case galleries", () => {
+    expect(heroScenes.map((scene) => scene.image)).toEqual([
+      caseImages.interiorWarm,
+      caseImages.exteriorVilla,
+      caseImages.commercial,
+    ]);
+    expect(
+      heroScenes.every((scene) => !scene.image.includes("/cases_1/")),
+    ).toBe(true);
   });
 });

@@ -2,6 +2,12 @@ import { describe, expect, it } from "vitest";
 
 import { BUTTON_BASE_CLASS } from "@/components/Button";
 import {
+  CASE_GALLERY_BUTTON_CLASS,
+  CASE_LIGHTBOX_BACKDROP_CLASS,
+  CASE_LIGHTBOX_IMAGE_CLASS,
+  getCaseLightboxLabel,
+} from "@/components/CaseGallery";
+import {
   canUseCustomCursor,
   resolveMenuState,
   shouldInterceptNavigation,
@@ -93,5 +99,22 @@ describe("button visual interaction contract", () => {
     expect(BUTTON_BASE_CLASS).toContain("duration-300");
     expect(BUTTON_BASE_CLASS).toContain("hover:-translate-y-0.5");
     expect(BUTTON_BASE_CLASS).toContain("active:translate-y-0");
+  });
+});
+
+describe("case gallery lightbox contract", () => {
+  it("opens gallery images as calm full-screen popups", () => {
+    expect(CASE_GALLERY_BUTTON_CLASS).toContain("cursor-none");
+    expect(CASE_GALLERY_BUTTON_CLASS).toContain("group");
+    expect(CASE_LIGHTBOX_BACKDROP_CLASS).toContain("fixed");
+    expect(CASE_LIGHTBOX_BACKDROP_CLASS).toContain("inset-0");
+    expect(CASE_LIGHTBOX_BACKDROP_CLASS).toContain("z-[90]");
+    expect(CASE_LIGHTBOX_IMAGE_CLASS).toContain("object-contain");
+  });
+
+  it("provides accessible labels for each case popup image", () => {
+    expect(getCaseLightboxLabel("Private Residence", 2)).toBe(
+      "Открыть ракурс 3 проекта Private Residence",
+    );
   });
 });

@@ -8,6 +8,10 @@ import { navigation } from "@/data/navigation";
 import { pricing, pricingServiceSections } from "@/data/pricing";
 import { services } from "@/data/services";
 import {
+  ABOUT_PORTRAIT_CARD_CLASS,
+  ABOUT_PORTRAIT_IMAGE_CLASS,
+} from "@/app/about/page";
+import {
   LISTING_HERO_IMAGE_CLASS,
   LISTING_HERO_IMAGE_LAYER_CLASS,
   LISTING_HERO_OVERLAY_CLASS,
@@ -133,5 +137,11 @@ describe("AVENOR content model", () => {
           item.note.length > 40,
       ),
     ).toBe(true);
+  });
+
+  it("keeps the founder portrait tall enough to avoid harsh cropping", () => {
+    expect(ABOUT_PORTRAIT_CARD_CLASS).toContain("min-h-[680px]");
+    expect(ABOUT_PORTRAIT_CARD_CLASS).toContain("lg:min-h-[760px]");
+    expect(ABOUT_PORTRAIT_IMAGE_CLASS).toContain("object-[center_18%]");
   });
 });

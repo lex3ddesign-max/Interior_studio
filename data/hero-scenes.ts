@@ -1,4 +1,4 @@
-import { cases } from "./cases";
+import { caseImages } from "./media";
 
 export type HeroScene = {
   id: string;
@@ -13,22 +13,21 @@ export const heroScenes: HeroScene[] = [
     id: "interior",
     category: "Interior",
     label: "Интерьер",
-    image: cases[0].coverImage,
-    alt: "Тёплый интерьер частной резиденции",
+    image: caseImages.interiorWarm,
+    alt: "Атмосферный интерьер частной резиденции в мягком дневном свете",
   },
   {
     id: "exterior",
     category: "Exterior",
     label: "Экстерьер",
-    image: cases[1].coverImage,
+    image: caseImages.exteriorVilla,
     alt: "Современная вилла в природном окружении",
   },
   {
     id: "commercial",
     category: "Commercial",
     label: "Коммерческое пространство",
-    image: cases[3].coverImage,
+    image: caseImages.commercial,
     alt: "Камерное коммерческое пространство",
   },
 ];
-
