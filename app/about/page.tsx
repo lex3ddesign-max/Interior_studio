@@ -61,7 +61,7 @@ export default function AboutPage() {
           <div className="relative min-h-[520px] overflow-hidden border border-line bg-charcoal">
             <div className="absolute inset-0">
               <Image
-                src={aboutMedia.portraitFallback}
+                src={aboutMedia.portraitTarget}
                 alt="Авторский визуальный контроль AVENOR"
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"

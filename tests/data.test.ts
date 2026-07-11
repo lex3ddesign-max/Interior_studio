@@ -23,6 +23,19 @@ describe("AVENOR content model", () => {
     expect(cases.every((item) => item.technicalDocs.length >= 3)).toBe(true);
   });
 
+  it("uses uploaded media for the founder and first case gallery", () => {
+    const firstCase = cases.find((item) => item.slug === "private-residence");
+
+    expect(aboutMedia.portraitTarget).toBe("/images/about/founder.webp");
+    expect(firstCase?.coverImage).toBe("/images/cases/cases_1/Hero.jpg");
+    expect(firstCase?.gallery).toHaveLength(13);
+    expect(
+      firstCase?.gallery.every((image) =>
+        image.startsWith("/images/cases/cases_1/"),
+      ),
+    ).toBe(true);
+  });
+
   it("provides three route-backed services", () => {
     expect(services).toHaveLength(3);
     expect(services.every((item) => item.href.startsWith("/services/"))).toBe(
@@ -103,7 +116,7 @@ describe("AVENOR content model", () => {
 
   it("documents real media replacement slots for the next content pass", () => {
     expect(aboutMedia.portraitFallback).toBe("/images/cases/interior-dark.jpg");
-    expect(aboutMedia.portraitTarget).toBe("/images/about/founder.jpg");
+    expect(aboutMedia.portraitTarget).toBe("/images/about/founder.webp");
     expect(mediaUploadSlots).toHaveLength(5);
     expect(mediaUploadSlots.map((item) => item.slug)).toEqual([
       "founder-portrait",

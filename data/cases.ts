@@ -42,6 +42,22 @@ const interiorGallery = [
   images.interiorStone,
 ];
 
+const privateResidenceGallery = [
+  "/images/cases/cases_1/Hero.jpg",
+  "/images/cases/cases_1/gost_1_final.jpg",
+  "/images/cases/cases_1/kitchen_1.jpg",
+  "/images/cases/cases_1/kitchen_2.jpg",
+  "/images/cases/cases_1/kitchen_3.jpg",
+  "/images/cases/cases_1/prihog_2.jpg",
+  "/images/cases/cases_1/bed_1_final.jpg",
+  "/images/cases/cases_1/bed_2_final.jpg",
+  "/images/cases/cases_1/bed_3_final.jpg",
+  "/images/cases/cases_1/child_1_final.jpg",
+  "/images/cases/cases_1/child_2_final.jpg",
+  "/images/cases/cases_1/child_3_final.jpg",
+  "/images/cases/cases_1/child_4_final.jpg",
+];
+
 const exteriorGallery = [
   images.exteriorVilla,
   images.exteriorDusk,
@@ -74,8 +90,8 @@ export const cases: CaseStudy[] = [
       "Серия визуализаций частной резиденции, которая помогла увидеть будущий сценарий жизни: дневной свет, пропорции гостиной, фактуры дерева, камня и мягкого текстиля.",
     story:
       "Заказчику нужно было до ремонта увидеть не просто набор красивых ракурсов, а настроение будущего дома: как дневной свет проходит через большую зону гостиной, как сочетаются теплое дерево, светлый камень и мягкий текстиль, где интерьер становится спокойным, а где получает акцент. Мы собрали серию кадров, которая помогла принять решения по материалам, мебели и сценариям освещения без лишних переделок на стройке.",
-    coverImage: images.interiorWarm,
-    gallery: interiorGallery,
+    coverImage: privateResidenceGallery[0],
+    gallery: privateResidenceGallery,
     highlights: [
       {
         icon: "space",

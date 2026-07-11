@@ -32,6 +32,7 @@ export const CONTACT_FIELD_LABEL_CLASS =
   "text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted transition-colors duration-300 group-focus-within:text-champagne";
 export const CONTACT_FIELD_CLASS =
   "contact-field w-full border-0 border-b border-line bg-transparent py-3 text-base text-ivory outline-none transition-[border-color,background-color,padding] duration-300 placeholder:text-muted-dark focus:border-b-bronze focus:bg-transparent focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:outline-0 focus-visible:ring-0";
+export const CONTACT_SUBMIT_BUTTON_CLASS = "w-fit min-h-10 px-5 self-start";
 
 export function ContactForm() {
   const [values, setValues] = useState(initialValues);
@@ -39,6 +40,7 @@ export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
+  const [serverMessage, setServerMessage] = useState("");
   const materialsFileRef = useRef<HTMLInputElement>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -52,9 +54,37 @@ export function ContactForm() {
     }
 
     setStatus("loading");
-    await new Promise((resolve) => window.setTimeout(resolve, 650));
-    setStatus("success");
-    setValues(initialValues);
+    setServerMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      const payload = (await response.json().catch(() => ({}))) as {
+        error?: string;
+      };
+
+      if (!response.ok) {
+        setServerMessage(
+          payload.error ??
+            "Не удалось отправить заявку. Попробуйте написать в Telegram или WhatsApp.",
+        );
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      setValues(initialValues);
+    } catch {
+      setServerMessage(
+        "Не удалось отправить заявку. Попробуйте написать в Telegram или WhatsApp.",
+      );
+      setStatus("error");
+    }
   }
 
   function updateField(field: keyof ContactFormValues, value: string) {
@@ -80,7 +110,7 @@ export function ContactForm() {
       >
         <p className="text-2xl text-ivory">Спасибо. Заявка принята.</p>
         <p className="mt-3 text-muted">
-          Это демонстрационная форма — на следующем этапе подключим реальную отправку.
+          Мы получили материалы и вернёмся с ответом после спокойной оценки задачи.
         </p>
         <button
           type="button"
@@ -152,12 +182,12 @@ export function ContactForm() {
       />
       {status === "error" ? (
         <p className="text-sm text-champagne" role="alert">
-          Проверьте обязательные поля.
+          {serverMessage || "Проверьте обязательные поля."}
         </p>
       ) : null}
       <Button
         type="submit"
-        className="w-full sm:w-fit"
+        className={CONTACT_SUBMIT_BUTTON_CLASS}
         disabled={status === "loading"}
       >
         {status === "loading" ? "Отправляем…" : "Отправить проект"}

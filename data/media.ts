@@ -10,7 +10,7 @@ export const caseImages = {
 export const aboutMedia = {
   heroBackground: caseImages.interiorStone,
   portraitFallback: caseImages.interiorDark,
-  portraitTarget: "/images/about/founder.jpg",
+  portraitTarget: "/images/about/founder.webp",
 } as const;
 
 export type MediaUploadSlot = {
@@ -25,7 +25,7 @@ export const mediaUploadSlots: MediaUploadSlot[] = [
   {
     slug: "founder-portrait",
     label: "Портрет основателя для страницы «О нас»",
-    targetPath: "/public/images/about/founder.jpg",
+    targetPath: "/public/images/about/founder.webp",
     recommendedSize: "1600×2000 px или крупнее, вертикальный кадр",
     note: "Лучше темный спокойный портрет или рабочий кадр у монитора/материалов; без ярких офисных фонов.",
   },
