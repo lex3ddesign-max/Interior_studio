@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionLabel } from "@/components/SectionLabel";
 import { TextReveal } from "@/components/TextReveal";
+import { aboutMedia } from "@/data/media";
 import { buildSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildSeoMetadata({
@@ -11,7 +12,7 @@ export const metadata: Metadata = buildSeoMetadata({
   description:
     "AVENOR — студия фотореалистичной 3D-визуализации интерьеров, экстерьеров и коммерческих пространств с вниманием к атмосфере, свету и деталям.",
   path: "/about",
-  image: "/images/cases/interior-stone.jpg",
+  image: aboutMedia.heroBackground,
 });
 
 const principles = [
@@ -35,7 +36,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden border-b border-line bg-black">
         <div className="absolute inset-0 opacity-30" aria-hidden="true">
           <Image
-            src="/images/cases/interior-stone.jpg"
+            src={aboutMedia.heroBackground}
             alt=""
             fill
             priority
@@ -60,8 +61,8 @@ export default function AboutPage() {
           <div className="relative min-h-[520px] overflow-hidden border border-line bg-charcoal">
             <div className="absolute inset-0">
               <Image
-                src="/images/cases/interior-dark.jpg"
-                alt="Портретный слот AVENOR"
+                src={aboutMedia.portraitFallback}
+                alt="Авторский визуальный контроль AVENOR"
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 className="object-cover opacity-35"
@@ -70,10 +71,10 @@ export default function AboutPage() {
             </div>
             <div className="absolute inset-x-8 bottom-8">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-champagne">
-                Здесь будет портрет
+                Авторский контроль
               </p>
               <p className="mt-4 max-w-md text-2xl tracking-[-0.04em] text-ivory">
-                Когда пришлёшь фото, заменю этот кадр на портрет основателя в том же cinematic стиле.
+                Каждый кадр проходит через свет, композицию и ощущение материала — чтобы визуализация выглядела не как рендер, а как будущая реальность проекта.
               </p>
             </div>
           </div>

@@ -1,3 +1,5 @@
+import { caseImages as images } from "./media";
+
 export type CaseCategory = "Interior" | "Exterior" | "Commercial";
 
 export type CaseHighlight = {
@@ -28,15 +30,6 @@ export type CaseStudy = {
   location?: string;
   services: string[];
 };
-
-const images = {
-  interiorWarm: "/images/cases/interior-warm.jpg",
-  interiorStone: "/images/cases/interior-stone.jpg",
-  interiorDark: "/images/cases/interior-dark.jpg",
-  exteriorVilla: "/images/cases/exterior-villa.jpg",
-  exteriorDusk: "/images/cases/exterior-dusk.jpg",
-  commercial: "/images/cases/commercial.jpg",
-} as const;
 
 const interiorGallery = [
   images.interiorWarm,

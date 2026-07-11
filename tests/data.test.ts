@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { cases } from "@/data/cases";
 import { homeBanners } from "@/data/homeBanners";
 import { listingHeroes } from "@/data/listingHeroes";
+import { aboutMedia, mediaUploadSlots } from "@/data/media";
 import { navigation } from "@/data/navigation";
 import { pricing, pricingServiceSections } from "@/data/pricing";
 import { services } from "@/data/services";
@@ -98,5 +99,26 @@ describe("AVENOR content model", () => {
     expect(LISTING_HERO_IMAGE_LAYER_CLASS).not.toContain("left-1/2");
     expect(LISTING_HERO_OVERLAY_CLASS).toContain("linear-gradient");
     expect(LISTING_HERO_OVERLAY_CLASS).toContain("rgba(3,3,2,1)_0%");
+  });
+
+  it("documents real media replacement slots for the next content pass", () => {
+    expect(aboutMedia.portraitFallback).toBe("/images/cases/interior-dark.jpg");
+    expect(aboutMedia.portraitTarget).toBe("/images/about/founder.jpg");
+    expect(mediaUploadSlots).toHaveLength(5);
+    expect(mediaUploadSlots.map((item) => item.slug)).toEqual([
+      "founder-portrait",
+      "case-private-residence",
+      "case-coastal-villa",
+      "case-commercial-space",
+      "seo-og-images",
+    ]);
+    expect(
+      mediaUploadSlots.every(
+        (item) =>
+          item.targetPath.startsWith("/public/images/") &&
+          item.recommendedSize.length > 8 &&
+          item.note.length > 40,
+      ),
+    ).toBe(true);
   });
 });
