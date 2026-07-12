@@ -58,6 +58,64 @@ describe("AVENOR content model", () => {
     }
   });
 
+  it("connects the second apartment case to the uploaded cases_2 visuals and furniture plan", () => {
+    const secondCase = cases.find(
+      (item) => item.slug === "warm-minimalism-apartment",
+    );
+
+    expect(secondCase?.title).toBe("Graphic City Apartment");
+    expect(secondCase?.coverImage).toBe("/images/cases/cases_2/living_4.webp");
+    expect(secondCase?.gallery).toHaveLength(10);
+    expect(
+      secondCase?.gallery.every(
+        (image) =>
+          image.startsWith("/images/cases/cases_2/") &&
+          image.endsWith(".webp"),
+      ),
+    ).toBe(true);
+    expect(secondCase?.description).toContain("кухней-гостиной");
+    expect(secondCase?.story).toContain("горчичная");
+    expect(secondCase?.story).toContain("тёмная 3D-панель");
+    expect(secondCase?.story).toContain("детская");
+    expect(secondCase?.technicalDocs[0]?.title).toBe("План расстановки мебели");
+    expect(secondCase?.technicalDocs[0]?.text).toContain("диван 2400×900");
+    expect(secondCase?.technicalDocs[0]?.text).toContain("детской");
+    expect(secondCase?.details).toEqual([
+      "Тёмная 3D-панель",
+      "Горчичный акцент",
+      "Серый текстиль",
+      "Медные подвесы",
+    ]);
+  });
+
+  it("keeps uploaded second case assets present and lightweight", () => {
+    const secondCase = cases.find(
+      (item) => item.slug === "warm-minimalism-apartment",
+    );
+    expect(secondCase).toBeDefined();
+
+    for (const image of secondCase?.gallery ?? []) {
+      const filePath = path.join(process.cwd(), "public", image);
+      expect(existsSync(filePath), `${image} should exist`).toBe(true);
+      expect(statSync(filePath).size, `${image} should be under 430 KB`).toBeLessThan(
+        430 * 1024,
+      );
+    }
+
+    expect(
+      existsSync(
+        path.join(
+          process.cwd(),
+          "public",
+          "images",
+          "cases",
+          "cases_2",
+          "план_мебель2.pdf",
+        ),
+      ),
+    ).toBe(true);
+  });
+
   it("uses optimized shared WebP imagery across site-wide heroes and banners", () => {
     const sharedImages = Object.values(caseImages);
 
