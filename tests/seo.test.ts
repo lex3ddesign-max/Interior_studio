@@ -34,6 +34,22 @@ describe("SEO metadata", () => {
     });
   });
 
+  it("uses optimized WebP as the default social image", () => {
+    const metadata = buildSeoMetadata({
+      title: "Главная",
+      description: "AVENOR",
+    });
+
+    expect(metadata.openGraph?.images).toEqual([
+      expect.objectContaining({
+        url: `${site.url}${caseImages.interiorWarm}`,
+      }),
+    ]);
+    expect(metadata.twitter).toMatchObject({
+      images: [`${site.url}${caseImages.interiorWarm}`],
+    });
+  });
+
   it("includes all static, service and case routes in sitemap", () => {
     const entries = sitemap();
     const urls = entries.map((entry) => entry.url);

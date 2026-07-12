@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
+import { caseImages } from "@/data/media";
 import { site } from "@/data/site";
 
-const defaultOgImage = "/images/cases/interior-warm.jpg";
+const defaultOgImage = caseImages.interiorWarm;
 
 type SeoMetadataInput = {
   title: string;
