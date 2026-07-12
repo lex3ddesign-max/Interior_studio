@@ -1,3 +1,5 @@
+import { caseImages } from "./media";
+
 export type HomeBanner = {
   placement: "after-process" | "after-trust";
   kicker: string;
@@ -18,7 +20,7 @@ export const homeBanners: HomeBanner[] = [
     title: "Когда пространство видно заранее, решение становится",
     titleAccent: "спокойнее",
     text: "Мы собираем кадр так, чтобы фактуры, глубина и свет не украшали проект, а помогали понять его ценность до начала работ.",
-    image: "/images/cases/interior-stone.jpg",
+    image: caseImages.interiorStone,
     imagePosition: "center 58%",
     mobileHeightClass: "h-[280px]",
     desktopHeightClass: "md:h-[400px]",
@@ -30,7 +32,7 @@ export const homeBanners: HomeBanner[] = [
     title: "Фотореализм убирает лишние споры",
     titleAccent: "до стройки",
     text: "Когда материалы, свет и масштаб уже видны в кадре, проще утвердить проект, защитить бюджет и избежать дорогих переделок.",
-    image: "/images/cases/exterior-dusk.jpg",
+    image: caseImages.exteriorDusk,
     imagePosition: "center 54%",
     mobileHeightClass: "h-[280px]",
     desktopHeightClass: "md:h-[400px]",

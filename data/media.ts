@@ -1,10 +1,10 @@
 export const caseImages = {
-  interiorWarm: "/images/cases/interior-warm.jpg",
-  interiorStone: "/images/cases/interior-stone.jpg",
-  interiorDark: "/images/cases/interior-dark.jpg",
-  exteriorVilla: "/images/cases/exterior-villa.jpg",
-  exteriorDusk: "/images/cases/exterior-dusk.jpg",
-  commercial: "/images/cases/commercial.jpg",
+  interiorWarm: "/images/cases/optimized/interior-warm.webp",
+  interiorStone: "/images/cases/optimized/interior-stone.webp",
+  interiorDark: "/images/cases/optimized/interior-dark.webp",
+  exteriorVilla: "/images/cases/optimized/exterior-villa.webp",
+  exteriorDusk: "/images/cases/optimized/exterior-dusk.webp",
+  commercial: "/images/cases/optimized/commercial.webp",
 } as const;
 
 export const aboutMedia = {

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ListingHero } from "@/components/ListingHero";
 import { ServiceCard } from "@/components/ServiceCard";
 import { getListingHero } from "@/data/listingHeroes";
+import { caseImages } from "@/data/media";
 import { services } from "@/data/services";
 import { buildSeoMetadata } from "@/lib/seo";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = buildSeoMetadata({
   description:
     "3D-визуализация интерьеров, экстерьеров и коммерческих пространств: фотореалистичные изображения для презентации, согласования и продаж.",
   path: "/services",
-  image: "/images/cases/exterior-dusk.jpg",
+  image: caseImages.exteriorDusk,
 });
 
 export default function ServicesPage() {

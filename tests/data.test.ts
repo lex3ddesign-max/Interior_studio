@@ -5,7 +5,7 @@ import path from "node:path";
 import { cases, homeCasePreviewImages } from "@/data/cases";
 import { homeBanners } from "@/data/homeBanners";
 import { listingHeroes } from "@/data/listingHeroes";
-import { aboutMedia, mediaUploadSlots } from "@/data/media";
+import { aboutMedia, caseImages, mediaUploadSlots } from "@/data/media";
 import { navigation } from "@/data/navigation";
 import { pricing, pricingServiceSections } from "@/data/pricing";
 import { services } from "@/data/services";
@@ -58,6 +58,31 @@ describe("AVENOR content model", () => {
     }
   });
 
+  it("uses optimized shared WebP imagery across site-wide heroes and banners", () => {
+    const sharedImages = Object.values(caseImages);
+
+    expect(sharedImages).toEqual([
+      "/images/cases/optimized/interior-warm.webp",
+      "/images/cases/optimized/interior-stone.webp",
+      "/images/cases/optimized/interior-dark.webp",
+      "/images/cases/optimized/exterior-villa.webp",
+      "/images/cases/optimized/exterior-dusk.webp",
+      "/images/cases/optimized/commercial.webp",
+    ]);
+
+    for (const image of sharedImages) {
+      const filePath = path.join(process.cwd(), "public", image);
+      expect(existsSync(filePath), `${image} should exist`).toBe(true);
+      expect(statSync(filePath).size, `${image} should be under 320 KB`).toBeLessThan(
+        320 * 1024,
+      );
+    }
+
+    expect(homeBanners.every((item) => item.image.endsWith(".webp"))).toBe(true);
+    expect(listingHeroes.every((item) => item.image.endsWith(".webp"))).toBe(true);
+    expect(services.every((item) => item.heroImage.endsWith(".webp"))).toBe(true);
+  });
+
   it("describes the first case according to the real apartment visuals", () => {
     const firstCase = cases.find((item) => item.slug === "private-residence");
 
@@ -75,7 +100,7 @@ describe("AVENOR content model", () => {
 
   it("keeps uploaded case galleries out of the home page case previews", () => {
     expect(homeCasePreviewImages).toHaveLength(cases.length);
-    expect(homeCasePreviewImages[0]).toBe("/images/cases/interior-warm.jpg");
+    expect(homeCasePreviewImages[0]).toBe(caseImages.interiorWarm);
     expect(homeCasePreviewImages.every((image) => !image.includes("/cases_1/"))).toBe(
       true,
     );
@@ -137,8 +162,8 @@ describe("AVENOR content model", () => {
       "services",
     ]);
     expect(listingHeroes.map((item) => item.image)).toEqual([
-      "/images/cases/interior-dark.jpg",
-      "/images/cases/exterior-dusk.jpg",
+      caseImages.interiorDark,
+      caseImages.exteriorDusk,
     ]);
     expect(
       listingHeroes.every(
@@ -160,7 +185,7 @@ describe("AVENOR content model", () => {
   });
 
   it("documents real media replacement slots for the next content pass", () => {
-    expect(aboutMedia.portraitFallback).toBe("/images/cases/interior-dark.jpg");
+    expect(aboutMedia.portraitFallback).toBe(caseImages.interiorDark);
     expect(aboutMedia.portraitTarget).toBe("/images/about/founder.webp");
     expect(mediaUploadSlots).toHaveLength(5);
     expect(mediaUploadSlots.map((item) => item.slug)).toEqual([

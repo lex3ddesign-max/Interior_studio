@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import { SectionLabel } from "@/components/SectionLabel";
 import { TextReveal } from "@/components/TextReveal";
+import { caseImages } from "@/data/media";
 import {
   pricingFactors,
   pricingPackages,
@@ -17,7 +18,7 @@ export const metadata: Metadata = buildSeoMetadata({
   description:
     "Пакеты и ориентиры стоимости 3D-визуализации AVENOR: интерьеры, экстерьеры, коммерческие пространства, сроки, ракурсы и факторы расчёта.",
   path: "/pricing",
-  image: "/images/cases/interior-warm.jpg",
+  image: caseImages.interiorWarm,
 });
 
 export default function PricingPage() {
@@ -26,7 +27,7 @@ export default function PricingPage() {
       <section className="relative overflow-hidden border-b border-line bg-black">
         <div className="absolute inset-0 opacity-30" aria-hidden="true">
           <Image
-            src="/images/cases/interior-warm.jpg"
+            src={caseImages.interiorWarm}
             alt=""
             fill
             priority
@@ -59,7 +60,7 @@ export default function PricingPage() {
 
           <div className="relative min-h-[520px] overflow-hidden border border-line bg-charcoal/80 shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
             <Image
-              src="/images/cases/interior-dark.jpg"
+              src={caseImages.interiorDark}
               alt="Проекция будущего проекта в 3D"
               fill
               sizes="(min-width: 1024px) 48vw, 100vw"

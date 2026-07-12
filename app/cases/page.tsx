@@ -4,6 +4,7 @@ import { CaseFilterGrid } from "@/components/CaseFilterGrid";
 import { ListingHero } from "@/components/ListingHero";
 import { cases } from "@/data/cases";
 import { getListingHero } from "@/data/listingHeroes";
+import { caseImages } from "@/data/media";
 import { buildSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildSeoMetadata({
@@ -11,7 +12,7 @@ export const metadata: Metadata = buildSeoMetadata({
   description:
     "Интерьеры, экстерьеры и коммерческие объекты в портфолио AVENOR — фотореалистичная 3D-визуализация пространства до реализации.",
   path: "/cases",
-  image: "/images/cases/interior-dark.jpg",
+  image: caseImages.interiorDark,
 });
 
 export default function CasesPage() {

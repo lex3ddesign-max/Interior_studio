@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { cases } from "@/data/cases";
+import { caseImages } from "@/data/media";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { absoluteUrl, buildSeoMetadata } from "@/lib/seo";
@@ -21,7 +22,7 @@ describe("SEO metadata", () => {
       title: "Кейсы",
       description: "Портфолио AVENOR",
       path: "/cases",
-      image: "/images/cases/interior-dark.jpg",
+      image: caseImages.interiorDark,
     });
 
     expect(absoluteUrl("/cases")).toBe(`${site.url}/cases`);

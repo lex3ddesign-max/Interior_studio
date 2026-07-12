@@ -1,3 +1,5 @@
+import { caseImages } from "./media";
+
 export type Service = {
   slug: "interior-visualization" | "exterior-visualization" | "commercial-spaces";
   eyebrow: string;
@@ -26,7 +28,7 @@ export const services: Service[] = [
     description:
       "Показываем интерьер до ремонта так, чтобы были понятны пропорции, свет, материалы и настроение будущей жизни — без догадок по чертежам и референсам.",
     href: "/services/interior-visualization",
-    heroImage: "/images/cases/interior-dark.jpg",
+    heroImage: caseImages.interiorDark,
     heroAlt: "Тёмный премиальный интерьер с архитектурным светом",
     heroPosition: { desktop: "center 54%", mobile: "62% center" },
     audience: ["Частные клиенты", "Дизайнеры", "Архитекторы", "Интерьерные студии"],
@@ -57,7 +59,7 @@ export const services: Service[] = [
     description:
       "Показываем архитектуру в среде: посадку на участок, фасадные материалы, масштаб, ландшафт и световой сценарий до строительства или презентации.",
     href: "/services/exterior-visualization",
-    heroImage: "/images/cases/exterior-dusk.jpg",
+    heroImage: caseImages.exteriorDusk,
     heroAlt: "Современный загородный дом в вечернем освещении",
     heroPosition: { desktop: "center 58%", mobile: "57% center" },
     audience: ["Архитекторы", "Девелоперы", "Частные заказчики", "Архитектурные бюро"],
@@ -88,7 +90,7 @@ export const services: Service[] = [
     description:
       "Готовим визуализации ресторанов, офисов, салонов и шоурумов, которые помогают презентовать концепцию, согласовать инвестиции и показать будущий клиентский опыт.",
     href: "/services/commercial-spaces",
-    heroImage: "/images/cases/commercial.jpg",
+    heroImage: caseImages.commercial,
     heroAlt: "Камерное коммерческое пространство с премиальной отделкой",
     heroPosition: { desktop: "center 52%", mobile: "64% center" },
     audience: ["Бренды", "Рестораторы", "Девелоперы", "Дизайн-студии"],

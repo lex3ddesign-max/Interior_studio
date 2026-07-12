@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionLabel } from "@/components/SectionLabel";
 import { TextReveal } from "@/components/TextReveal";
-import { aboutMedia } from "@/data/media";
+import { aboutMedia, caseImages } from "@/data/media";
 import { buildSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildSeoMetadata({
@@ -112,7 +112,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden border-t border-line bg-charcoal">
         <div className="absolute inset-0" aria-hidden="true">
           <Image
-            src="/images/cases/exterior-dusk.jpg"
+            src={caseImages.exteriorDusk}
             alt=""
             fill
             sizes="100vw"

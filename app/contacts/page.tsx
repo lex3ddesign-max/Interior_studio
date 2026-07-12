@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { ContactSection } from "@/components/ContactSection";
+import { caseImages } from "@/data/media";
 import { buildSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildSeoMetadata({
@@ -8,7 +9,7 @@ export const metadata: Metadata = buildSeoMetadata({
   description:
     "Обсудить 3D-визуализацию с AVENOR: отправьте материалы, референсы или короткое описание проекта для спокойной оценки задачи.",
   path: "/contacts",
-  image: "/images/cases/interior-warm.jpg",
+  image: caseImages.interiorWarm,
 });
 
 export default function ContactsPage() {
